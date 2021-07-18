@@ -1,0 +1,4 @@
+//start react
+npm start
+//start node.js server
+node ./server/server.js
