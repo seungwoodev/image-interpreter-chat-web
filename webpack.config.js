@@ -5,7 +5,8 @@ module.exports = {
   entry: "./src/index.js",
   output: {
     filename: "bundle.js",
-    path: path.resolve(__dirname + "/build")
+    path: path.resolve(__dirname + "/build"),
+    publicPath: '/'
   },
   devServer: {
     contentBase: path.resolve("./build"),
@@ -35,6 +36,19 @@ module.exports = {
             loader: "html-loader",
             options: { minimize: true }
           }
+        ]
+      },
+      {
+        test: /\.(png|jpg|gif)$/i,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+                limit: 4000, // 4k 미만 파일은 line 형태로 삽입
+                name: 'img/[name].[ext]',
+                esModule: false
+            }
+          },
         ]
       }
     ]
