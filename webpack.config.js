@@ -14,8 +14,13 @@ module.exports = {
     // 클라이언트 포트는 3000
     port: 3000,
     proxy: {
-      '/user_inform': {
+      '/user_info': {
       	// 서버 포트는 3001
+        target: 'http://localhost:3001/',
+        changeOrigin: true,
+      },
+      '/upload_file': {
+        // 서버 포트는 3001
         target: 'http://localhost:3001/',
         changeOrigin: true,
       }

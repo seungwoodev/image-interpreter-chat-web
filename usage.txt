@@ -1,1 +1,4 @@
+// run server
+node server/server.js
+// run react
 npm run dev

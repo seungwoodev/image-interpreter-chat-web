@@ -19,7 +19,7 @@ function Login() {
         console.log('click login')
         console.log('ID : ', inputId)
         console.log('PW : ', inputPw)
-        axios.post('/user_inform/onLogin', null, {
+        axios.post('/user_info/onLogin', null, {
             params: {
             'user_id': inputId,
             'user_pw': inputPw
@@ -50,7 +50,7 @@ function Login() {
      
 	// 페이지 렌더링 후 가장 처음 호출되는 함수
     useEffect(() => {
-        axios.get('/user_inform/login')
+        axios.get('/user_info/login')
         .then(res => console.log(res))
         .catch()
     },
