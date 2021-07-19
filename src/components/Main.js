@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom';
 function Main(props) {
 	// App 컴포넌트에서 전달받은 props 값은 아래와 같이 받아온다.
 	const isLogin = props.isLogin
+    const [userId, setUserId] = useState(sessionStorage.getItem('user_id'))
+
     const [uploadClicked, setUploadClicked] = useState(false)
     
     const onLogout = () => {
@@ -24,7 +26,7 @@ function Main(props) {
     return(
         <div>
             {uploadClicked ? 
-                <Upload_file /> : 
+                <Upload_file userId = {userId}/> : 
                     <div>
                         <div>
                             <h2>Main 페이지</h2>
