@@ -1,6 +1,6 @@
 # Project Title / image-to-emoji-converter-web
 
-이미지를 이모티콘으로 변경 기능 및 채팅 기능을 활용한 웹 사이트
+이미지를 이모티콘으로 변경 및 채팅 기능을 활용한 웹 사이트
 
 ## Team Mates : 최지호, 김주형, 추승우
 
