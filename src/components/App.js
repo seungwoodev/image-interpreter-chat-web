@@ -1,6 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import Login from './Login';
 import Main from './Main';
+import NavBar from "./NavBar/NavBar.js";
+import Footer from "./Footer/Footer";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+
  
 function App () {
  // 로그인 상태 관리
@@ -17,13 +26,16 @@ function App () {
       console.log('isLogin ?? :: ', isLogin)
     }
   })
- 
   return (
-    <div>
-      {isLogin ? 
-      	// Main 컴포넌트 호출 시 isLogin 이라는 props 값을 전달
-        <Main isLogin={isLogin} /> : 
-        <Login />}
+    <div className="main">
+      <NavBar />
+      <div style={{"background-color": "#777799"}}>
+        {isLogin ? 
+          // Main 컴포넌트 호출 시 isLogin 이라는 props 값을 전달
+          <Main isLogin={isLogin} /> : 
+          <Login />}
+      </div>
+      <div><Footer /></div>
     </div>
   )
 }
