@@ -23,7 +23,12 @@ module.exports = {
         // 서버 포트는 3001
         target: 'http://localhost:3001/',
         changeOrigin: true,
-      }
+      },
+      '/convert_file': {
+      	// 서버 포트는 3001
+        target: 'http://localhost:3001/',
+        changeOrigin: true,
+      },
     }
   },
   mode: "development",
