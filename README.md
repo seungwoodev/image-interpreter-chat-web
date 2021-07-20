@@ -5,12 +5,12 @@
 ## Team Mates : 최지호, 김주형, 추승우
 
 ## Login Page
+* database에 저장된 유저의 아이디, 비밀번호 확인 후 로그인
 
-.
+## Image interpreter
+* 유저가 이미지 업로드
+* 이미지 특징 분석 및 변환 중 google rest api request 문제 발생
 
-## Image to emoji converter
-
-.
 
 ## Chat (채팅)
 
