@@ -18,9 +18,9 @@
 * 로그인 정보 저장을 위한 firebase 및 Chat engine 사용
 * <del> socket을 활용한 카메라 기능을 구현 하였으나 로컬에서만 작동 가능, 외부에서는 https링크가 아니라 접속 불가, 해당 사항 추가 보완 필요 </del> 
 
-<img src="https://user-images.githubusercontent.com/72987121/126331920-8d65c36b-c8fe-45e6-bd57-343ef4d292f9.PNG" width=30% height=30%>
+<img src="https://user-images.githubusercontent.com/72987121/126331920-8d65c36b-c8fe-45e6-bd57-343ef4d292f9.PNG" width=50% height=50%>
 
-<img src="https://user-images.githubusercontent.com/72987121/126331924-4f484f27-9989-41cd-874f-6987e1ebd2be.PNG" width=30% height=30%>
+<img src="https://user-images.githubusercontent.com/72987121/126331924-4f484f27-9989-41cd-874f-6987e1ebd2be.PNG" width=90% height=90%>
 
 
  
