@@ -27,6 +27,9 @@ function Upload_file2({userId, fileURL, fileName, fileType, fileDate, Base64}) {
 
   const[c, setC] = useState(false);
 
+  const[state, setState] = useState({
+    fullTextAnnotation: null
+  })
 
   
   // On file convert (click the convert button)
@@ -52,9 +55,41 @@ function Upload_file2({userId, fileURL, fileName, fileType, fileDate, Base64}) {
     features: [
         new vision.Feature('TEXT_DETECTION', 4),
         new vision.Feature('LABEL_DETECTION', 10),
+        new vision.Feature('FACE_DETECTION', 10),
     ]
     })
     console.log('features', req.features);
+
+    const callGoogleVIsionApi = (base64) => {
+        let url = googleCloud.api + googleCloud.apiKey;
+        fetch(url, {
+          method: 'POST',
+          body: JSON.stringify({
+            requests: [
+              {
+                image: {
+                  content: base64,
+                },
+                features: [
+                  { type: 'LABEL_DETECTION', maxResults: 10 },
+                  { type: 'TEXT_DETECTION', maxResults: 5 },
+                  { type: 'DOCUMENT_TEXT_DETECTION', maxResults: 5 },
+                  { type: 'WEB_DETECTION', maxResults: 5 },
+                ],
+              },
+            ],
+          }),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            setState({
+              fullTextAnnotation: data.responses[0].fullTextAnnotation.text,
+            });
+          })
+          .catch((err) => console.log('error : ', err));
+      };
+
+      callGoogleVIsionApi;
     
 
     // axios.post("/convert_file", body)
@@ -84,6 +119,8 @@ function Upload_file2({userId, fileURL, fileName, fileType, fileDate, Base64}) {
     //   alert('file upload fail')
     //   console.log('error response', response);
     // });
+    alert('convert success');
+    setC(true);
   };
 
   // File content to be displayed after
@@ -101,10 +138,11 @@ function Upload_file2({userId, fileURL, fileName, fileType, fileDate, Base64}) {
         <Upload_file3
         userId = {userId}
         fileURL = {fileURL}
-        joy = {response.data.joy}
-        anger = {response.data.anger}
-        sorrow = {response.data.sorrow}
-        surprise = {response.data.surprise}/> :
+        joy = {joy}
+        anger = {anger}
+        sorrow = {sorrow}
+        surprise = {surprise}
+        fullTextAnnotation = {state.fullTextAnnotation}/> :
         <div>
             <h3>
             File Convert
@@ -113,6 +151,16 @@ function Upload_file2({userId, fileURL, fileName, fileType, fileDate, Base64}) {
                 <button onClick={onFileConvert}>
                 Convert!
                 </button>
+            </div>
+            <div>
+            <h2>File Details:</h2>
+                <p>File Name: {fileName}</p>
+                <p>File Type: {fileType}</p>
+                <p>Last Modified:{" "}
+                {fileDate}</p>
+                <div>
+                <img src={fileURL}/>
+                </div>
             </div>
         </div>}
     </div>

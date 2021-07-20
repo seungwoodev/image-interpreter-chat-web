@@ -2,7 +2,7 @@ import axios from 'axios';
  
 import React,{Component, useEffect, useState} from 'react';
  
-function Upload_file3({userId, fileURL, joy, anger, sorrow, surprise}) {
+function Upload_file3({userId, fileURL, joy, anger, sorrow, surprise, fullTextAnnotation}) {
   // Main 컴포넌트에서 전달받은 props 값은 아래와 같이 받아온다.
 	
   var userId = {userId}.userId;
@@ -11,6 +11,7 @@ function Upload_file3({userId, fileURL, joy, anger, sorrow, surprise}) {
   var anger = {anger}.anger;
   var sorrow = {sorrow}.sorrow;
   var surprise = {surprise}.surprise;
+  var fullTextAnnotation = {fullTextAnnotation}.fullTextAnnotation;
 
   const [r, setR] = useState(false);
   
@@ -28,6 +29,7 @@ function Upload_file3({userId, fileURL, joy, anger, sorrow, surprise}) {
       <p>angerLikelihood: {anger}</p>
       <p>sorrowLikelihood:{sorrow}</p>
       <p>surpriseLikelihood: {surprise}</p>
+      <p>fullTextAnnotation: {fullTextAnnotation}</p>
       <div>
       <img src={fileURL}/>
       </div>
