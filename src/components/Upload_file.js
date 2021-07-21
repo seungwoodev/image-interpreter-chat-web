@@ -40,6 +40,7 @@ function Upload_file(props) {
     console.log('fileName', event.target.files[0].name);
     console.log('fileType', event.target.files[0].type);
     console.log('fileDate', event.target.files[0].lastModifiedDate.toDateString());
+    console.log('filePath',event.target.mozfull)
   };
    
   // File content to be displayed after

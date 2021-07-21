@@ -20,10 +20,20 @@ function Upload_file2({userId, fileURL, fileName, fileType, fileDate, Base64}) {
     fileName: null,
     fileType: null
   }
-  var joy = null;
-  var anger = null;
-  var sorrow = null;
-  var surprise = null;
+
+
+  const [joy, setJoy] = useState({
+    joy: null
+  })
+  const [anger, setAnger] = useState({
+    anger: null
+  })
+  const [sorrow, setSorrow] = useState({
+    sorrow: null
+  })
+  const [surprise, setSurprise] = useState({
+    surprise: null
+  })
 
   const[c, setC] = useState(false);
 
@@ -46,51 +56,33 @@ function Upload_file2({userId, fileURL, fileName, fileType, fileDate, Base64}) {
     // Send formData object
     console.log('body', body);
 
-    const vision = require('react-cloud-vision-api')
-    vision.init({auth: '8e46018d1e1ad13f5c2290b112825c6b5084160a'})
-    const req = new vision.Request({
-    image: new vision.Image({
-        base64: base64Img,
-    }),
-    features: [
-        new vision.Feature('TEXT_DETECTION', 4),
-        new vision.Feature('LABEL_DETECTION', 10),
-        new vision.Feature('FACE_DETECTION', 10),
-    ]
+    axios.post("/convert_file", body)
+    .then(function (response) {
+      //handle success
+      if(response.data.code == 404){
+        alert('insert error in file DB')
+        console.log('insert error response', response);
+      }
+      else if(response.data.code == 200){
+        //upload success
+        console.log('success response', response);
+        setJoy({joy: response.data.joy});
+        setAnger({anger: response.data.anger});
+        setSorrow({sorrow: response.data.sorrow});
+        setSurprise({surprise: response.data.surprise});
+        alert('convert success');
+        setC(true);
+      }
+      else{
+        alert('response code is not correct')
+        console.log('response code is not correct', response);
+      }
     })
-    console.log('features', req.features);
-
-    const callGoogleVIsionApi = (base64) => {
-        let url = googleCloud.api + googleCloud.apiKey;
-        fetch(url, {
-          method: 'POST',
-          body: JSON.stringify({
-            requests: [
-              {
-                image: {
-                  content: base64,
-                },
-                features: [
-                  { type: 'LABEL_DETECTION', maxResults: 10 },
-                  { type: 'TEXT_DETECTION', maxResults: 5 },
-                  { type: 'DOCUMENT_TEXT_DETECTION', maxResults: 5 },
-                  { type: 'WEB_DETECTION', maxResults: 5 },
-                ],
-              },
-            ],
-          }),
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            setState({
-              fullTextAnnotation: data.responses[0].fullTextAnnotation.text,
-            });
-          })
-          .catch((err) => console.log('error : ', err));
-      };
-
-      callGoogleVIsionApi;
-    
+    .catch(function (response) {
+      //handle error
+      alert('file convert fail')
+      console.log('error response', response);
+    });
 
     // axios.post("/convert_file", body)
     // .then(function (response) {
@@ -119,16 +111,18 @@ function Upload_file2({userId, fileURL, fileName, fileType, fileDate, Base64}) {
     //   alert('file upload fail')
     //   console.log('error response', response);
     // });
-    alert('convert success');
-    setC(true);
   };
 
   // File content to be displayed after
   // file upload is complete
   
   useEffect(() => {
+    console.log("joy", joy);
+    console.log("anger", anger);
+    console.log("sorrow", sorrow);
+    console.log("surprise", surprise);
     
-  }, [c]);
+  }, [joy, anger, sorrow, surprise]);
   
 
 
@@ -138,10 +132,10 @@ function Upload_file2({userId, fileURL, fileName, fileType, fileDate, Base64}) {
         <Upload_file3
         userId = {userId}
         fileURL = {fileURL}
-        joy = {joy}
-        anger = {anger}
-        sorrow = {sorrow}
-        surprise = {surprise}
+        joy = {joy.joy}
+        anger = {anger.anger}
+        sorrow = {sorrow.sorrow}
+        surprise = {surprise.surprise}
         fullTextAnnotation = {state.fullTextAnnotation}/> :
         <div>
             <h3>
