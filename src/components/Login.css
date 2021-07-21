@@ -4,9 +4,12 @@
   text-decoration: none;
   font-family: sans-serif;
 }
+<<<<<<< HEAD
 .bodys {
   background-color: #34495e;
 }
+=======
+>>>>>>> 5cc92de8b0cd7b78427a77bab96dac000ba0afc5
 
 .backgroud {
   background-color: #34495e;
@@ -69,7 +72,11 @@
   margin-bottom: 40px;
   width: 80%;
   height: 40px;
+<<<<<<< HEAD
   background: linear-gradient(125deg, #81ecec, #112d7a, #097c7c);
+=======
+  background: linear-gradient(125deg, #81ecec, #6c5ce7, #81ecec);
+>>>>>>> 5cc92de8b0cd7b78427a77bab96dac000ba0afc5
   background-position: left;
   background-size: 200%;
   color: white;

@@ -20,7 +20,6 @@ function App () {
       console.log('isLogin ?? :: ', isLogin)
     }
   })
- 
   return (
     <div className="main">
       <NavBar />

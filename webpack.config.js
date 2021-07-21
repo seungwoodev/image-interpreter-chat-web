@@ -33,10 +33,13 @@ module.exports = {
         test:/\.(css|scss)$/,
         use:['style-loader','css-loader']
     },
+<<<<<<< HEAD
     {
       test: /\.svg$/,
       loader: 'file-loader'
   },
+=======
+>>>>>>> 5cc92de8b0cd7b78427a77bab96dac000ba0afc5
       {
         test: /\.(js|jsx)$/,
         exclude: "/node_modules",

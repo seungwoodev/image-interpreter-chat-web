@@ -63,6 +63,7 @@ function Login() {
     <form action="index.html" method="post" class="loginForm">
       <h2>Login</h2>
       <div class="idForm" >
+
       <input type='text'class="id" placeholder="ID" name='input_id' value={inputId} onChange={handleInputId} />
       </div>
       <div class="passForm">
