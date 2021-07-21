@@ -9,7 +9,7 @@
 
 ## Image interpreter
 * 유저가 이미지 업로드
-* <del> 이미지 특징 분석 및 변환 중 google rest api request 문제 발생 </del>
+* 이미지에서 얼굴 인식 및 표정 
 
 
 ## Chat (채팅)
