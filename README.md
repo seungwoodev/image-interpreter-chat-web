@@ -6,6 +6,7 @@
 
 ## Login Page
 * database에 저장된 유저의 아이디, 비밀번호 확인 후 로그인
+<img src ="https://user-images.githubusercontent.com/65812107/126427499-1edfcfbf-c0c6-43f0-bbef-fba7cca1ec75.png" width=50% height=50%>
 
 ## Image interpreter
 * Google Cloud Vision API 사용
