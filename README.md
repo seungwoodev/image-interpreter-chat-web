@@ -6,17 +6,17 @@
 
 ## Login Page
 * database에 저장된 유저의 아이디, 비밀번호 확인 후 로그인
-<img src ="https://user-images.githubusercontent.com/65812107/126427499-1edfcfbf-c0c6-43f0-bbef-fba7cca1ec75.png" width=80% height=80%>
-<img src ="https://user-images.githubusercontent.com/65812107/126427500-3a95192b-b0a3-43e2-868b-572fde293d8d.png" width=80% hegith=80%>
+<img src ="https://user-images.githubusercontent.com/65812107/126427499-1edfcfbf-c0c6-43f0-bbef-fba7cca1ec75.png" width=50% height=50%>
+<img src ="https://user-images.githubusercontent.com/65812107/126427500-3a95192b-b0a3-43e2-868b-572fde293d8d.png" width=50% hegith=50%>
 
 ## Image interpreter
 * Google Cloud Vision API 사용
 * 유저가 이미지 업로드
-<img src ="https://user-images.githubusercontent.com/65812107/126427495-ecc668fa-9a29-4238-bfd4-0f9e47093be4.png" width=80% height=80%>
-<img src ="https://user-images.githubusercontent.com/65812107/126427482-733997a2-aa50-4d09-af8e-0b486b7c2799.png" width=80% height=80%>
+<img src ="https://user-images.githubusercontent.com/65812107/126427495-ecc668fa-9a29-4238-bfd4-0f9e47093be4.png" width=50% height=50%>
+<img src ="https://user-images.githubusercontent.com/65812107/126427482-733997a2-aa50-4d09-af8e-0b486b7c2799.png" width=80% height=50%>
 * 이미지에서 얼굴 인식 및 표정 분석
-<img src ="https://user-images.githubusercontent.com/65812107/126427476-dc095a8a-f20b-485e-b9f1-cb3846b12298.png" width=80% height=80%>
-<img src ="https://user-images.githubusercontent.com/65812107/126427463-082e7999-c560-4ea6-9269-174788195e50.png" width=80% heigth=80%>
+<img src ="https://user-images.githubusercontent.com/65812107/126427476-dc095a8a-f20b-485e-b9f1-cb3846b12298.png" width=50% height=50%>
+<img src ="https://user-images.githubusercontent.com/65812107/126427463-082e7999-c560-4ea6-9269-174788195e50.png" width=50% heigth=50%>
 
 
 ## Chat (채팅)
