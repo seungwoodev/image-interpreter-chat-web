@@ -34,15 +34,15 @@ function Upload_file3({userId, fileURL, joy, anger, sorrow, surprise, fullTextAn
       {(joy == 'VERY_LIKELY')?<p><img src={happyimageicon} width="150" height="150"/><a href="https://legitimation.netlify.app">매우 행복함</a></p>:null}
       {(anger == 'VERY_LIKELY')?<p><img src={angryimageicon} width="150" height="150"/><a href="https://legitimation.netlify.app">매우 화남</a></p>:null}
       {(sorrow == 'VERY_LIKELY')?<p><img src={sadimageicon} width="150" height="150"/><a href="https://legitimation.netlify.app">매우 슬픔</a></p>:null}
-      {(surprise == 'VERY_LIKELY')?<p><img src={happyembarrassedimageiconimageicon} width="150" height="150"/><a href="https://legitimation.netlify.app">매우 당황함</a></p>:null}
+      {(surprise == 'VERY_LIKELY')?<p><img src={embarrassedimageicon} width="150" height="150"/><a href="https://legitimation.netlify.app">매우 당황함</a></p>:null}
       {(joy == 'LIKELY')?<p><img src={happyimageicon} width="150" height="150"/><a href="https://legitimation.netlify.app">행복함</a></p>:null}
       {(anger == 'LIKELY')?<p><img src={angryimageicon} width="150" height="150"/><a href="https://legitimation.netlify.app">화남</a></p>:null}
       {(sorrow == 'LIKELY')?<p><img src={sadimageicon} width="150" height="150"/><a href="https://legitimation.netlify.app">슬픔</a></p>:null}
-      {(surprise == 'LIKELY')?<p><img src={happyembarrassedimageiconimageicon} width="150" height="150"/><a href="https://legitimation.netlify.app">당황함</a></p>:null}
+      {(surprise == 'LIKELY')?<p><img src={embarrassedimageicon} width="150" height="150"/><a href="https://legitimation.netlify.app">당황함</a></p>:null}
       {(joy == 'POSSIBLE')?<p><img src={happyimageicon} width="150" height="150"/><a href="https://legitimation.netlify.app">행복할수도 있음</a></p>:null}
       {(anger == 'POSSIBLE')?<p><img src={angryimageicon} width="150" height="150"/><a href="https://legitimation.netlify.app">화났을수도 있음</a></p>:null}
       {(sorrow == 'POSSIBLE')?<p><img src={sadimageicon} width="150" height="150"/><a href="https://legitimation.netlify.app">슬플수도 있음</a></p>:null}
-      {(surprise == 'POSSIBLE')?<p><img src={happyembarrassedimageiconimageicon} width="150" height="150"/><a href="https://legitimation.netlify.app">당황했을수도 있음</a></p>:null}
+      {(surprise == 'POSSIBLE')?<p><img src={embarrassedimageicon} width="150" height="150"/><a href="https://legitimation.netlify.app">당황했을수도 있음</a></p>:null}
     </h1>
   </div>
   <div>
