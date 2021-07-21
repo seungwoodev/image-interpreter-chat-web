@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import Login from './Login';
 import Main from './Main';
+import NavBar from "./NavBar/NavBar.js";
+import Footer from "./Footer/Footer";
+import './App.css'
  
 function App () {
  // 로그인 상태 관리
@@ -19,11 +22,15 @@ function App () {
   })
  
   return (
+    <div className="main">
+      <NavBar />
     <div>
       {isLogin ? 
       	// Main 컴포넌트 호출 시 isLogin 이라는 props 값을 전달
         <Main isLogin={isLogin} /> : 
         <Login />}
+    </div>
+    <div><Footer /></div>
     </div>
   )
 }

@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import Upload_file from './Upload_file';
+import './css/Main.css' 
 import { Link } from 'react-router-dom';
+import Button from 'react-bootstrap/Button';
  
 function Main(props) {
 	// App 컴포넌트에서 전달받은 props 값은 아래와 같이 받아온다.
@@ -27,16 +29,14 @@ function Main(props) {
         <div>
             {uploadClicked ? 
                 <Upload_file userId = {userId}/> : 
-                    <div>
-                        <div>
-                            <h2>Main 페이지</h2>
-                        </div>
-                        <div>
-                            <button type='button' onClick={onLogout}>Logout</button>
-                        </div>
-                        <div>
-                            <button type='button' onClick={uploadPage}>uploadPage</button>
-                        </div>
+                    <div class="maindiv">
+                        <div class="mb-2">
+                            <Button variant="primary" size="lg" onClick={onLogout}>Logout
+                            </Button>{' '}
+                            <Button variant="secondary" size="lg" onClick={uploadPage}>
+                                Upload Image
+                                </Button>
+                                </div>
                     </div>}
         </div>
     )

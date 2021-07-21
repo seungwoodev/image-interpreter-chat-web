@@ -76,7 +76,7 @@ function Upload_file1({userId, fileURL, fileName, fileType, fileDate, Base64}) {
     <div>
       {u?
         <Upload_file2 userId = {userId} fileURL = {fileURL}  fileName = {fileName} fileType = {fileType} fileDate = {fileDate} Base64 = {Base64}/> :
-        <div>
+        <div class="maindiv2">
             <h3>
                 File Upload
             </h3>
@@ -91,10 +91,10 @@ function Upload_file1({userId, fileURL, fileName, fileType, fileDate, Base64}) {
                 <p>File Type: {fileType}</p>
                 <p>Last Modified:{" "}
                 {fileDate}</p>
-                <div>
-                <img src={fileURL}/>
-                </div>
             </div>
+            <div>
+                <img src={fileURL} height="300"/>
+                </div>
         </div>}
     </div>
   );

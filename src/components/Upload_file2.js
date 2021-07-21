@@ -20,18 +20,31 @@ function Upload_file2({userId, fileURL, fileName, fileType, fileDate, Base64}) {
     fileName: null,
     fileType: null
   }
-  var joy = null;
-  var anger = null;
-  var sorrow = null;
-  var surprise = null;
+
+
+  const [joy, setJoy] = useState({
+    joy: null
+  })
+  const [anger, setAnger] = useState({
+    anger: null
+  })
+  const [sorrow, setSorrow] = useState({
+    sorrow: null
+  })
+  const [surprise, setSurprise] = useState({
+    surprise: null
+  })
 
   const[c, setC] = useState(false);
 
+  const[state, setState] = useState({
+    fullTextAnnotation: null
+  })
 
   
   // On file convert (click the convert button)
   const onFileConvert = () => {
-
+    document.querySelector('body').style.backgroundColor='#d64e4e';  //이부분 표정에따라 배경이 바뀌도록
     // Update the body object
     body.userId = userId;
     body.fileName = fileName;
@@ -43,19 +56,33 @@ function Upload_file2({userId, fileURL, fileName, fileType, fileDate, Base64}) {
     // Send formData object
     console.log('body', body);
 
-    const vision = require('react-cloud-vision-api')
-    vision.init({auth: '8e46018d1e1ad13f5c2290b112825c6b5084160a'})
-    const req = new vision.Request({
-    image: new vision.Image({
-        base64: base64Img,
-    }),
-    features: [
-        new vision.Feature('TEXT_DETECTION', 4),
-        new vision.Feature('LABEL_DETECTION', 10),
-    ]
+    axios.post("/convert_file", body)
+    .then(function (response) {
+      //handle success
+      if(response.data.code == 404){
+        alert('insert error in file DB')
+        console.log('insert error response', response);
+      }
+      else if(response.data.code == 200){
+        //upload success
+        console.log('success response', response);
+        setJoy({joy: response.data.joy});
+        setAnger({anger: response.data.anger});
+        setSorrow({sorrow: response.data.sorrow});
+        setSurprise({surprise: response.data.surprise});
+        alert('convert success');
+        setC(true);
+      }
+      else{
+        alert('response code is not correct')
+        console.log('response code is not correct', response);
+      }
     })
-    console.log('features', req.features);
-    
+    .catch(function (response) {
+      //handle error
+      alert('file convert fail')
+      console.log('error response', response);
+    });
 
     // axios.post("/convert_file", body)
     // .then(function (response) {
@@ -90,8 +117,12 @@ function Upload_file2({userId, fileURL, fileName, fileType, fileDate, Base64}) {
   // file upload is complete
   
   useEffect(() => {
+    console.log("joy", joy);
+    console.log("anger", anger);
+    console.log("sorrow", sorrow);
+    console.log("surprise", surprise);
     
-  }, [c]);
+  }, [joy, anger, sorrow, surprise]);
   
 
 
@@ -101,11 +132,12 @@ function Upload_file2({userId, fileURL, fileName, fileType, fileDate, Base64}) {
         <Upload_file3
         userId = {userId}
         fileURL = {fileURL}
-        joy = {response.data.joy}
-        anger = {response.data.anger}
-        sorrow = {response.data.sorrow}
-        surprise = {response.data.surprise}/> :
-        <div>
+        joy = {joy.joy}
+        anger = {anger.anger}
+        sorrow = {sorrow.sorrow}
+        surprise = {surprise.surprise}
+        fullTextAnnotation = {state.fullTextAnnotation}/> :
+        <div class="maindiv2">
             <h3>
             File Convert
             </h3>
@@ -113,6 +145,16 @@ function Upload_file2({userId, fileURL, fileName, fileType, fileDate, Base64}) {
                 <button onClick={onFileConvert}>
                 Convert!
                 </button>
+            </div>
+            <div>
+            <h2>File Details:</h2>
+                <p>File Name: {fileName}</p>
+                <p>File Type: {fileType}</p>
+                <p>Last Modified:{" "}
+                {fileDate}</p>
+                <div>
+                <img src={fileURL}  height="300"/>
+                </div>
             </div>
         </div>}
     </div>

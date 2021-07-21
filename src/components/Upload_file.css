@@ -1,0 +1,30 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  text-decoration: none;
+  font-family: sans-serif;
+}
+.maindiv {
+  position: absolute;
+  width: 300px;
+  height: 400px;
+  padding: 30px, 20px;
+  background-color: #ffffff;
+  text-align: center;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 15px;
+}
+.maindiv3 {
+  position: absolute;
+  width: 300px;
+  height: 400px;
+  padding: 30px, 20px;
+  background-color: #ffffff;
+  text-align: center;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 15px;
+}

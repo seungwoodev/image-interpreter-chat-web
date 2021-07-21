@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import './Login.css' 
  
 function Login() {
     const [inputId, setInputId] = useState('')
@@ -58,20 +59,23 @@ function Login() {
     [])
  
     return(
-        <div>
-            <h2>Login</h2>
-            <div>
-                <label htmlFor='input_id'>ID : </label>
-                <input type='text' name='input_id' value={inputId} onChange={handleInputId} />
-            </div>
-            <div>
-                <label htmlFor='input_pw'>PW : </label>
-                <input type='password' name='input_pw' value={inputPw} onChange={handleInputPw} />
-            </div>
-            <div>
-                <button type='button' onClick={onClickLogin}>Login</button>
-            </div>
-        </div>
+      <div class="bodys">
+    <form action="index.html" method="post" class="loginForm">
+      <h2>Login</h2>
+      <div class="idForm" >
+      <input type='text'class="id" placeholder="ID" name='input_id' value={inputId} onChange={handleInputId} />
+      </div>
+      <div class="passForm">
+       <input type='password' class="pw" placeholder="PW" name='input_pw' value={inputPw} onChange={handleInputPw} />
+      </div>
+      <button type="button" class="btn" onClick={onClickLogin}>
+        LOG IN
+      </button>
+      <div class="bottomText">
+        Don't you have ID? <a href="#">sign up</a>
+      </div>
+    </form>
+    </div>
     )
 }
  
