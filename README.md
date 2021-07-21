@@ -8,6 +8,7 @@
 * database에 저장된 유저의 아이디, 비밀번호 확인 후 로그인
 
 ## Image interpreter
+* Google Cloud Vision API 사용
 * 유저가 이미지 업로드
 * 이미지에서 얼굴 인식 및 표정 분석
 
