@@ -1,4 +1,4 @@
 // run server
-GOOGLE_APPLICATION_CREDENTIALS="/Users/seungwoo/Desktop/madcamp/credential_google.json" node server.js
+GOOGLE_APPLICATION_CREDENTIALS="/Users/seungwoo/Desktop/madcamp/credential_google.json" node server/server.js
 // run react
 npm run dev
